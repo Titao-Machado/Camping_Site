@@ -1,0 +1,25 @@
+﻿@page "/categorias"
+@using Microsoft.AspNetCore.Components.QuickGrid
+@inject Music_CRUD.Data.AppDbContext DB
+@using Music_CRUD.Modelos
+
+<PageTitle>Music</PageTitle>
+
+<h1>Musicas</h1>
+
+<p>
+    <a href="categorias/create">Adicione uma Música</a>
+</p>
+
+<QuickGrid Class="table" Items="DB.Categorias">
+    <PropertyColumn Property="categorias => categorias.Nome" />
+    <PropertyColumn Property="categorias => categorias.Artista" />
+    <PropertyColumn Property="categorias => categorias.Genero" />
+    <PropertyColumn Property="categorias => categorias.Album" />
+
+    <TemplateColumn Context="categorias">
+        <a href="@($"categorias/edit?id={categorias.Id}")">Edit</a> |
+        <a href="@($"categorias/details?id={categorias.Id}")">Details</a> |
+        <a href="@($"categorias/delete?id={categorias.Id}")">Delete</a>
+    </TemplateColumn>
+</QuickGrid>

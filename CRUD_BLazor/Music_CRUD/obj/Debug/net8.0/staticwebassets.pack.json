@@ -1,0 +1,41 @@
+{
+  "Files": [
+    {
+      "Id": "C:\\Users\\thiag\\Desktop\\Blazor Crud\\Music_CRUD\\Music_CRUD\\obj\\Debug\\net8.0\\scopedcss\\projectbundle\\Music_CRUD.bundle.scp.css",
+      "PackagePath": "staticwebassets\\Music_CRUD.bundle.scp.css"
+    },
+    {
+      "Id": "C:\\Users\\thiag\\Desktop\\Blazor Crud\\Music_CRUD\\Music_CRUD\\wwwroot\\app.css",
+      "PackagePath": "staticwebassets\\app.css"
+    },
+    {
+      "Id": "C:\\Users\\thiag\\Desktop\\Blazor Crud\\Music_CRUD\\Music_CRUD\\wwwroot\\bootstrap\\bootstrap.min.css",
+      "PackagePath": "staticwebassets\\bootstrap\\bootstrap.min.css"
+    },
+    {
+      "Id": "C:\\Users\\thiag\\Desktop\\Blazor Crud\\Music_CRUD\\Music_CRUD\\wwwroot\\bootstrap\\bootstrap.min.css.map",
+      "PackagePath": "staticwebassets\\bootstrap\\bootstrap.min.css.map"
+    },
+    {
+      "Id": "C:\\Users\\thiag\\Desktop\\Blazor Crud\\Music_CRUD\\Music_CRUD\\wwwroot\\favicon.png",
+      "PackagePath": "staticwebassets\\favicon.png"
+    },
+    {
+      "Id": "obj\\Debug\\net8.0\\staticwebassets\\msbuild.Music_CRUD.Microsoft.AspNetCore.StaticWebAssets.props",
+      "PackagePath": "build\\Microsoft.AspNetCore.StaticWebAssets.props"
+    },
+    {
+      "Id": "obj\\Debug\\net8.0\\staticwebassets\\msbuild.build.Music_CRUD.props",
+      "PackagePath": "build\\Music_CRUD.props"
+    },
+    {
+      "Id": "obj\\Debug\\net8.0\\staticwebassets\\msbuild.buildMultiTargeting.Music_CRUD.props",
+      "PackagePath": "buildMultiTargeting\\Music_CRUD.props"
+    },
+    {
+      "Id": "obj\\Debug\\net8.0\\staticwebassets\\msbuild.buildTransitive.Music_CRUD.props",
+      "PackagePath": "buildTransitive\\Music_CRUD.props"
+    }
+  ],
+  "ElementsToRemove": []
+}

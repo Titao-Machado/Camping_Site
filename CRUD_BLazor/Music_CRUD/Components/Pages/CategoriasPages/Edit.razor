@@ -1,0 +1,102 @@
+﻿@page "/Categorias/edit"
+@inject Music_CRUD.Data.AppDbContext DB
+@using Music_CRUD.Modelos
+@inject NavigationManager NavigationManager
+@using Microsoft.EntityFrameworkCore
+
+<PageTitle>Edit</PageTitle>
+
+<h1>Edit</h1>
+
+<h4>Categorias</h4>
+<hr />
+@if (Categorias is null)
+{
+    <p><em>Loading...</em></p>
+}
+else
+{
+    <div class="row">
+        <div class="col-md-4">
+            <EditForm method="post" Model="Categorias" OnValidSubmit="UpdateCategorias" FormName="edit" Enhance>
+                <DataAnnotationsValidator />
+                <ValidationSummary />
+                <input type="hidden" name="Categorias.Id" value="@Categorias.Id" />
+                <div class="mb-3">
+                    <label for="nome" class="form-label">Nome:</label>
+                    <InputText id="nome" @bind-Value="Categorias.Nome" class="form-control" />
+                    <ValidationMessage For="() => Categorias.Nome" class="text-danger" />
+                </div>
+                <div class="mb-3">
+                    <label for="artista" class="form-label">Artista:</label>
+                    <InputText id="artista" @bind-Value="Categorias.Artista" class="form-control" />
+                    <ValidationMessage For="() => Categorias.Artista" class="text-danger" />
+                </div>
+                <div class="mb-3">
+                    <label for="genero" class="form-label">Genero:</label>
+                    <InputText id="genero" @bind-Value="Categorias.Genero" class="form-control" />
+                    <ValidationMessage For="() => Categorias.Genero" class="text-danger" />
+                </div>
+                <div class="mb-3">
+                    <label for="album" class="form-label">Album:</label>
+                    <InputText id="album" @bind-Value="Categorias.Album" class="form-control" />
+                    <ValidationMessage For="() => Categorias.Album" class="text-danger" />
+                </div>
+                <button type="submit" class="btn btn-primary">Save</button>
+            </EditForm>
+        </div>
+    </div>
+}
+<br
+
+<div>
+    <a href="/categorias">Back to List</a>
+</div>
+
+@code {
+    [SupplyParameterFromQuery]
+    public int Id { get; set; }
+
+    [SupplyParameterFromForm]
+    public Categorias? Categorias { get; set; }
+
+    protected override async Task OnInitializedAsync()
+    {
+        Categorias ??= await DB.Categorias.FirstOrDefaultAsync(m => m.Id == Id);
+
+        if (Categorias is null)
+        {
+            NavigationManager.NavigateTo("notfound");
+        }
+    }
+
+    // To protect from overposting attacks, enable the specific properties you want to bind to.
+    // For more details, see https://aka.ms/RazorPagesCRUD.
+    public async Task UpdateCategorias()
+    {
+        DB.Attach(Categorias!).State = EntityState.Modified;
+
+        try
+        {
+            await DB.SaveChangesAsync();
+        }
+        catch (DbUpdateConcurrencyException)
+        {
+            if (!CategoriasExists(Categorias!.Id))
+            {
+                NavigationManager.NavigateTo("notfound");
+            }
+            else
+            {
+                throw;
+            }
+        }
+
+        NavigationManager.NavigateTo("/categorias");
+    }
+
+    bool CategoriasExists(int id)
+    {
+        return DB.Categorias.Any(e => e.Id == id);
+    }
+}
